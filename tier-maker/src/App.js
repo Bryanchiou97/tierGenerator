@@ -27,6 +27,10 @@ const BigContainer = styled.div`
 `;
 
 const TierName = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
   box-sizing: border-box;
   text-align: center;
   background-color: ${props => props.boxColor || "lightblue"};
