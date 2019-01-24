@@ -27,20 +27,22 @@ const BigContainer = styled.div`
 `;
 
 const TierName = styled.div`
+  box-sizing: border-box;
   text-align: center;
   background-color: ${props => props.boxColor || "lightblue"};
   float: left;
   margin: 2px;
   width: 15%;
-  height: 19%;
+  height: calc(20% - 4px);
 `;
 
 const TierBoxes = styled.div`
+  box-sizing: border-box;
   float: left;
   margin: 2px;
   width: 75%;
+  height: calc(20% - 4px);
   background-color: #595f68;
-  height: 19%;
 `;
 
 class App extends Component {
