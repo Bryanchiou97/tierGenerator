@@ -36,7 +36,7 @@ const TierName = styled.div`
   background-color: ${props => props.boxColor || "lightblue"};
   float: left;
   margin: 2px;
-  width: 15%;
+  width: calc(15% - 4px);
   height: calc(20% - 4px);
 `;
 
@@ -44,7 +44,7 @@ const TierBoxes = styled.div`
   box-sizing: border-box;
   float: left;
   margin: 2px;
-  width: 75%;
+  width: calc(85% - 4px);
   height: calc(20% - 4px);
   background-color: #595f68;
 `;
