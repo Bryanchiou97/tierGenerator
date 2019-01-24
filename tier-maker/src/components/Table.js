@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../App.css";
 
-export default class AppDragDropDemo extends Component {
+export default class Table extends Component {
   state = {
     tasks: [
       { name: "Learn Angular", category: "wip", bgcolor: "yellow" },
