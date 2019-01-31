@@ -10,26 +10,28 @@ import { Droppable } from "react-beautiful-dnd";
 // `;
 const Container = styled.div`
   margin: 8px;
-  border: 1px solid lightgrey;
-  border-radius: 2px;
-  background-color: white;
+  border: 1px solid #595f68;
+  background-color: #595f68;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;
 
 const TierName = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   font-size: 20px;
-//   box-sizing: border-box;
-//   text-align: center;
-//   background-color: ${props => props.boxColor || "lightblue"};
-//   float: left;
-//   margin: 2px;
-//   width: calc(15% - 4px);
-//   height: calc(20% - 4px);
-    padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: ${props => props.boxColor || "lightblue"};
+  float: left;
+  margin: 2px;
+  //   width: calc(15% - 4px);
+  //   height: calc(20% - 4px);
+  width: 70px;
+  height: 70px;
 `;
 
 const TierBoxes = styled.div`
@@ -39,9 +41,12 @@ const TierBoxes = styled.div`
   //   width: calc(85% - 4px);
   //   height: calc(20% - 4px);
   //   background-color: #595f68;
+  align-items: center;
   padding: 8px;
   transition: background-color 0.2s ease;
-  background-color: ${props => (props.isDraggingOver ? "lightblue" : "white")};
+  //background-color: ${props =>
+    props.isDraggingOver ? "lightblue" : "white"};
+  background-color: #595f68
   display: flex;
   flex-grow: 1;
   min-height: 100px;
@@ -52,9 +57,11 @@ class Row extends Component {
   render() {
     return (
       <Container>
-        <TierName>{this.props.column.title}</TierName>
+        <TierName boxColor={this.props.row.color}>
+          {this.props.row.title}
+        </TierName>
         <Droppable
-          droppableId={this.props.column.id}
+          droppableId={this.props.row.id}
           direction="horizontal"
           //   type={this.props.column.id === "b-column" ? "done" : "active"}
           // control if you can drag drop into this column if same column type

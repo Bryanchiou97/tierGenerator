@@ -18,17 +18,12 @@ const Wrapper = styled.section`
   background: papayawhip;
 `;
 
-const Container = styled.div`
-  display: table-row;
-`;
-
 const BigContainer = styled.div`
-  text-align: center;
   margin: auto;
   margin-top: 10px;
-  //background-color: #00001a;
-  background-color: white;
-  flex-direction: row;
+  background-color: #00001a;
+  //background-color: white;
+  display: table-row;
   border-style: solid;
   width: 70%;
   height: 70vh;
@@ -72,23 +67,23 @@ class App extends Component {
     )
       return;
 
-    const start = this.state.columns[source.droppableId];
-    const finish = this.state.columns[destination.droppableId];
+    const start = this.state.rows[source.droppableId];
+    const finish = this.state.rows[destination.droppableId];
     if (start === finish) {
-      const column = start;
-      const newTaskIds = Array.from(column.taskIds);
+      const row = start;
+      const newTaskIds = Array.from(row.taskIds);
       newTaskIds.splice(source.index, 1);
       newTaskIds.splice(destination.index, 0, draggableId);
 
-      const newColumn = {
-        ...column,
+      const newRow = {
+        ...row,
         taskIds: newTaskIds
       };
       const newState = {
         ...this.state,
-        columns: {
-          ...this.state.columns,
-          [newColumn.id]: newColumn
+        rows: {
+          ...this.state.rows,
+          [newRow.id]: newRow
         }
       };
 
@@ -111,8 +106,8 @@ class App extends Component {
     };
     const newState = {
       ...this.state,
-      columns: {
-        ...this.state.columns,
+      rows: {
+        ...this.state.rows,
         [newStart.id]: newStart,
         [newFinish.id]: newFinish
       }
@@ -123,21 +118,21 @@ class App extends Component {
 
   render() {
     return (
-      <DragDropContext onDragEnd={this.onDragEnd}>
-        {/* <Wrapper>
+      <div>
+        <Wrapper>
           <Title>Tier List Generator</Title>
-        </Wrapper> */}
-        <Container>
-          {this.state.columnOrder.map(columnId => {
-            const column = this.state.columns[columnId];
-            const tasks = column.taskIds.map(
-              taskId => this.state.tasks[taskId]
-            );
-            return <Row key={column.id} column={column} tasks={tasks} />;
-          })}
-          ;
-        </Container>
-      </DragDropContext>
+        </Wrapper>
+        <DragDropContext onDragEnd={this.onDragEnd}>
+          <BigContainer>
+            {this.state.rowOrder.map(rowId => {
+              const row = this.state.rows[rowId];
+              const tasks = row.taskIds.map(taskId => this.state.tasks[taskId]);
+              return <Row key={row.id} row={row} tasks={tasks} />;
+            })}
+            ;
+          </BigContainer>
+        </DragDropContext>
+      </div>
     );
     // return (
     //   <div>

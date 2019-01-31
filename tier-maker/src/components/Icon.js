@@ -23,7 +23,7 @@ const Container = styled.div`
 class Icon extends Component {
   state = {};
   render() {
-    const isDragDisabled = this.props.task.id === "task-1";
+    const isDragDisabled = this.props.task.id === "test";
 
     return (
       <Draggable

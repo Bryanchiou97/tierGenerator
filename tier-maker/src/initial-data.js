@@ -6,40 +6,40 @@ const initialData = {
     "task-4": { id: "task-4", content: "Icon 4" },
     "task-5": { id: "task-5", content: "Icon 5" }
   },
-  columns: {
-    "s-column": {
-      id: "s-column",
+  rows: {
+    "s-row": {
+      id: "s-row",
       title: "S",
       taskIds: ["task-1", "task-2", "task-3", "task-4", "task-5"],
       color: "#ff7f7f"
     },
-    "a-column": {
-      id: "a-column",
+    "a-row": {
+      id: "a-row",
       title: "A",
       taskIds: [],
       color: "#ffbf7f"
     },
-    "b-column": {
-      id: "b-column",
+    "b-row": {
+      id: "b-row",
       title: "B",
       taskIds: [],
       color: "#FFFF7F"
     },
-    "c-column": {
-      id: "c-column",
+    "c-row": {
+      id: "c-row",
       title: "C",
-      taskIds: ["task-1"],
+      taskIds: [],
       color: "#7fff7f"
     },
-    "d-column": {
-      id: "d-column",
+    "d-row": {
+      id: "d-row",
       title: "D",
-      taskIds: ["task-3"],
+      taskIds: [],
       color: "#7fbfff"
     }
   },
   //   columnOrder: ["s-column", "a-column", "b-column", "c-column", "d-column"]
-  columnOrder: ["s-column", "a-column", "b-column"]
+  rowOrder: ["s-row", "a-row", "b-row", "c-row", "d-row"]
 };
 
 export default initialData;
