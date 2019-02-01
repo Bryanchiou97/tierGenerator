@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import Table from "./components/Table";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import initialData from "./initial-data";
 import Row from "./components/Row";
 import { DragDropContext } from "react-beautiful-dnd";
@@ -19,37 +18,25 @@ const Wrapper = styled.section`
 `;
 
 const BigContainer = styled.div`
+  display: table-row;
+  border: 2px solid black;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: black;
+  //flex-direction: row;
+`;
+
+const Centered = styled.div`
   margin: auto;
   margin-top: 10px;
-  background-color: #00001a;
-  //background-color: white;
-  display: table-row;
-  border-style: solid;
   width: 70%;
-  height: 70vh;
-`;
-
-const TierName = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  box-sizing: border-box;
   text-align: center;
-  background-color: ${props => props.boxColor || "lightblue"};
-  float: left;
-  margin: 2px;
-  width: calc(15% - 4px);
-  height: calc(20% - 4px);
-`;
-
-const TierBoxes = styled.div`
-  box-sizing: border-box;
-  float: left;
-  margin: 2px;
-  width: calc(85% - 4px);
-  height: calc(20% - 4px);
-  background-color: #595f68;
+  align-items: center;
+  max-width: 70%;
+  background-color: black;
+  height: 70vh;
 `;
 
 class App extends Component {
@@ -122,41 +109,22 @@ class App extends Component {
         <Wrapper>
           <Title>Tier List Generator</Title>
         </Wrapper>
-        <DragDropContext onDragEnd={this.onDragEnd}>
-          <BigContainer>
-            {this.state.rowOrder.map(rowId => {
-              const row = this.state.rows[rowId];
-              const tasks = row.taskIds.map(taskId => this.state.tasks[taskId]);
-              return <Row key={row.id} row={row} tasks={tasks} />;
-            })}
-            ;
-          </BigContainer>
-        </DragDropContext>
+        <Centered>
+          <DragDropContext onDragEnd={this.onDragEnd}>
+            <BigContainer>
+              {this.state.rowOrder.map(rowId => {
+                const row = this.state.rows[rowId];
+                const tasks = row.taskIds.map(
+                  taskId => this.state.tasks[taskId]
+                );
+                return <Row key={row.id} row={row} tasks={tasks} />;
+              })}
+              ;
+            </BigContainer>
+          </DragDropContext>
+        </Centered>
       </div>
     );
-    // return (
-    //   <div>
-    //     <Wrapper>
-    //       <Title>Tier List Generator</Title>
-    //     </Wrapper>
-    //     <BigContainer>
-    //       <TierName boxColor="#ff7f7f"> S</TierName>
-    //       <TierBoxes> </TierBoxes>
-
-    //       <TierName boxColor="#ffbf7f"> A</TierName>
-    //       <TierBoxes> </TierBoxes>
-
-    //       <TierName boxColor="#FFFF7F"> B</TierName>
-    //       <TierBoxes> </TierBoxes>
-
-    //       <TierName boxColor="#7fff7f"> C</TierName>
-    //       <TierBoxes> </TierBoxes>
-
-    //       <TierName boxColor="#7fbfff"> D</TierName>
-    //       <TierBoxes> </TierBoxes>
-    //     </BigContainer>
-    //   </div>
-    // );
   }
 }
 

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import Icon from "./Icon";
 import { Droppable } from "react-beautiful-dnd";
 
@@ -9,20 +9,21 @@ import { Droppable } from "react-beautiful-dnd";
 //   border-radius: 2px;
 // `;
 const Container = styled.div`
-  margin: 8px;
-  border: 1px solid #595f68;
+  margin: 2px;
+  border: 1px solid black;
   background-color: #595f68;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  height: calc(20% - 4px);
 `;
 
 const TierName = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
+  font-size: 30px;
   box-sizing: border-box;
   text-align: center;
   background-color: ${props => props.boxColor || "lightblue"};
@@ -30,8 +31,8 @@ const TierName = styled.div`
   margin: 2px;
   //   width: calc(15% - 4px);
   //   height: calc(20% - 4px);
-  width: 70px;
-  height: 70px;
+  width: calc(13%);
+  height: calc(85%);
 `;
 
 const TierBoxes = styled.div`
@@ -42,14 +43,12 @@ const TierBoxes = styled.div`
   //   height: calc(20% - 4px);
   //   background-color: #595f68;
   align-items: center;
-  padding: 8px;
+  margin: 2px;
   transition: background-color 0.2s ease;
-  //background-color: ${props =>
-    props.isDraggingOver ? "lightblue" : "white"};
   background-color: #595f68
   display: flex;
   flex-grow: 1;
-  min-height: 100px;
+  height: calc(20% - 4px);
 `;
 
 class Row extends Component {
