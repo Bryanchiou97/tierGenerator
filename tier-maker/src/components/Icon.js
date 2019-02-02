@@ -3,21 +3,22 @@ import styled from "styled-components";
 import { Draggable } from "react-beautiful-dnd";
 
 const Container = styled.div`
-  border: 1px solid lightgrey;
-  border-radius: 2px;
+  border: 2px solid black;
   padding: 8px;
-  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: ${props =>
     props.isDragDisabled
       ? "lightgrey"
       : props.isDragging
       ? "lightgreen"
       : "white"};
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+  height: 70px;
+  width: 80px;
+  //   max-height: 80px;
+  //   max-width: 100px;
 `;
 
 class Icon extends Component {

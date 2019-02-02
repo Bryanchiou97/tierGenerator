@@ -17,16 +17,6 @@ const Wrapper = styled.section`
   background: papayawhip;
 `;
 
-const BigContainer = styled.div`
-  display: table-row;
-  border: 2px solid black;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  background-color: black;
-  //flex-direction: row;
-`;
-
 const Centered = styled.div`
   margin: auto;
   margin-top: 10px;
@@ -38,6 +28,39 @@ const Centered = styled.div`
   background-color: black;
   height: 70vh;
 `;
+
+const BigContainer = styled.div`
+  //display: table-row;
+  display: grid;
+  // grid-template-columns: [tierNameStart] 1fr [tierNameEnd tierBoxStart] 4fr [tierBoxEnd];
+  // grid-template-rows: 20%;
+  grid-gap: 2px 2px;
+  grid-auto-flow: row;
+  border: 2px solid black;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  //position: relative;
+`;
+
+// const GridContainer = styled.div`
+//   margin: auto;
+//   margin-top: 10px;
+//   display: grid;
+//   grid-template-columns: [tierNameStart] 1fr [tierNameEnd tierBoxStart] 4fr [tierBoxEnd];
+//   grid-template-rows: 20%;
+//   grid-gap: 2px 2px;
+//   border: 2px solid black;
+//   width: 70%;
+//   height: 70vh;
+// `;
+
+// const TestContainer = styled.div`
+//   margin: 2px;
+//   border: 2px solid black;
+//   width: calc(100% - 4px);
+//   height: calc(100% - 4px);
+// `;
 
 class App extends Component {
   state = initialData;
