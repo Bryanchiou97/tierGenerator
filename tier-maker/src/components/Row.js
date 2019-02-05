@@ -10,19 +10,19 @@ import { Droppable } from "react-beautiful-dnd";
 // `;
 const Container = styled.div`
   margin: 2px;
-  border: 1px solid black;
+
   background-color: #595f68;
   display: grid;
   grid-template-columns: [tierNameStart] 1fr [tierNameEnd tierBoxStart] 4fr [tierBoxEnd];
   grid-template-row: 100%;
-  grid-gap: 2px 2px;
+  //grid-gap: 2px 2px;
   //flex:1,
   //flex-direction: row;
   //flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   //height: calc(20% - 4px);
-  width: 100%;
+  width: 99%;
   height: 100%;
 `;
 
@@ -34,32 +34,23 @@ const TierName = styled.div`
   box-sizing: border-box;
   text-align: center;
   background-color: ${props => props.boxColor || "lightblue"};
-  align-self: stretch;
+  //align-self: stretch;
   grid-area: 1 / 1 / 2 / 2;
   margin: 2px;
-  //   width: calc(15% - 4px);
   height: calc(50%);
   min-height: 80px;
+  border: 2px solid black;
 `;
 
 const TierBoxes = styled.div`
-  //   box-sizing: border-box;
-  //   float: left;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-auto-flow: row
   align-items: center;
   justify-self: stretch;
-  //text-align: center;
-  float: left;
   margin: 2px;
   border: 2px solid black;
-  background-color: "green";
-  min-height: 80px;
-//   flex-grow: 1;
-//   flex-direction: "row";
-//   flex-wrap: "wrap";
-//   height: calc(85%);
+  min-height: 86px;
 `;
 
 class Row extends Component {

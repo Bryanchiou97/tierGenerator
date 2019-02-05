@@ -5,13 +5,30 @@ const initialData = {
     "task-3": { id: "task-3", content: "Icon 3" },
     "task-4": { id: "task-4", content: "Icon 4" },
     "task-5": { id: "task-5", content: "Icon 5" },
-    "task-6": { id: "task-6", content: "Icon 6" }
+    "task-6": { id: "task-6", content: "Icon 6" },
+    "task-7": { id: "task-7", content: "Icon 7" },
+    "task-8": { id: "task-8", content: "Icon 8" },
+    "task-9": { id: "task-9", content: "Icon 9" },
+    "task-10": { id: "task-10", content: "Icon 10" },
+    "task-11": { id: "task-11", content: "Icon 11" }
   },
   rows: {
     "s-row": {
       id: "s-row",
       title: "S",
-      taskIds: ["task-1", "task-2", "task-3", "task-4", "task-5", "task-6"],
+      taskIds: [
+        "task-1",
+        "task-2",
+        "task-3",
+        "task-4",
+        "task-5",
+        "task-6",
+        "task-7",
+        "task-8",
+        "task-9",
+        "task-10",
+        "task-11"
+      ],
       color: "#ff7f7f"
     },
     "a-row": {

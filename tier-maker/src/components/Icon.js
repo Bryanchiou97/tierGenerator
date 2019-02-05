@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Draggable } from "react-beautiful-dnd";
 
 const Container = styled.div`
-  border: 2px solid black;
+  //border: 2px solid black;
   padding: 8px;
   display: flex;
   justify-content: center;
@@ -15,8 +15,8 @@ const Container = styled.div`
       ? "lightgreen"
       : "white"};
 
-  height: 70px;
-  width: 80px;
+  min-height: 80px;
+  min-width: 80px;
   //   max-height: 80px;
   //   max-width: 100px;
 `;

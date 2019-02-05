@@ -21,12 +21,14 @@ const Centered = styled.div`
   margin: auto;
   margin-top: 10px;
   width: 70%;
-  display: flex;
+  display: grid;
   text-align: center;
-  align-items: center;
+  align-items: stretch;
   max-width: 70%;
   background-color: black;
-  height: 70vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  min-height; 60vh;
 `;
 
 const BigContainer = styled.div`
@@ -34,34 +36,49 @@ const BigContainer = styled.div`
   display: grid;
   // grid-template-columns: [tierNameStart] 1fr [tierNameEnd tierBoxStart] 4fr [tierBoxEnd];
   // grid-template-rows: 20%;
-  grid-gap: 2px 2px;
+  //grid-gap: 2px 2px;
   grid-auto-flow: row;
   border: 2px solid black;
   width: 100%;
   height: 100%;
-  background-color: black;
+  background-color: #595f68;
   //position: relative;
 `;
 
-// const GridContainer = styled.div`
-//   margin: auto;
-//   margin-top: 10px;
-//   display: grid;
-//   grid-template-columns: [tierNameStart] 1fr [tierNameEnd tierBoxStart] 4fr [tierBoxEnd];
-//   grid-template-rows: 20%;
-//   grid-gap: 2px 2px;
-//   border: 2px solid black;
-//   width: 70%;
-//   height: 70vh;
-// `;
+const InputContainer = styled.div`
+  width: 70%;
+  background-color: #ffcc33;
+  margin: auto;
+  margin-top: 10px;
+  height: 240px;
+`;
 
-// const TestContainer = styled.div`
-//   margin: 2px;
-//   border: 2px solid black;
-//   width: calc(100% - 4px);
-//   height: calc(100% - 4px);
-// `;
+const InputBox = styled.div`
+  border: 2px solid black;
+  width: 200px;
+  height: calc(100% - 4px);
+  float: left;
+  background-color: green;
+  margin-right: 40px;
+`;
 
+const InputDisplay = styled.div`
+  float: left;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap 2px 2px;
+  grid-auto-flow: row;
+  border: 2px solid black;
+  width: 500px;
+  height: calc(100% - 4px);
+`;
+
+const Space = styled.div`
+  margin: auto;
+  margin-top: 10px;
+  height: 100px;
+`;
 class App extends Component {
   state = initialData;
 
@@ -142,10 +159,13 @@ class App extends Component {
                 );
                 return <Row key={row.id} row={row} tasks={tasks} />;
               })}
-              ;
             </BigContainer>
           </DragDropContext>
         </Centered>
+        <InputContainer>
+          <InputBox /> <InputDisplay />
+        </InputContainer>
+        <Space />
       </div>
     );
   }
