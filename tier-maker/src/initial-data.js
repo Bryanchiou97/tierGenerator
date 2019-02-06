@@ -54,10 +54,19 @@ const initialData = {
       title: "D",
       taskIds: [],
       color: "#7fbfff"
+    },
+    "null-row": {
+      id: "null-row",
+      title: "Null",
+      taskIds: [],
+      color: "green"
     }
   },
   //   columnOrder: ["s-column", "a-column", "b-column", "c-column", "d-column"]
-  rowOrder: ["s-row", "a-row", "b-row", "c-row", "d-row"]
+  rowOrder: ["s-row", "a-row", "b-row", "c-row", "d-row"],
+  unCategorizedTaskes: ["null-row"],
+  totalTasks: 11,
+  iconInput: ""
 };
 
 export default initialData;

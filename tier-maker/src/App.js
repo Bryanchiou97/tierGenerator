@@ -4,6 +4,7 @@ import styled from "styled-components";
 import initialData from "./initial-data";
 import Row from "./components/Row";
 import { DragDropContext } from "react-beautiful-dnd";
+import InputRow from "./components/InputRow";
 
 const Title = styled.h1`
   font-size: 1.5em;
@@ -45,41 +46,24 @@ const BigContainer = styled.div`
   //position: relative;
 `;
 
-const InputContainer = styled.div`
-  width: 70%;
-  background-color: #ffcc33;
-  margin: auto;
-  margin-top: 10px;
-  height: 240px;
-`;
-
-const InputBox = styled.div`
-  border: 2px solid black;
-  width: 200px;
-  height: calc(100% - 4px);
-  float: left;
-  background-color: green;
-  margin-right: 40px;
-`;
-
-const InputDisplay = styled.div`
-  float: left;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-gap 2px 2px;
-  grid-auto-flow: row;
-  border: 2px solid black;
-  width: 500px;
-  height: calc(100% - 4px);
-`;
-
 const Space = styled.div`
   margin: auto;
   margin-top: 10px;
   height: 100px;
 `;
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.inputHandler = this.inputHandler.bind(this);
+  }
+
+  inputHandler() {
+    this.setState({
+      totalTasks: 14
+    });
+  }
+
   state = initialData;
 
   onDragEnd = result => {
@@ -162,9 +146,12 @@ class App extends Component {
             </BigContainer>
           </DragDropContext>
         </Centered>
-        <InputContainer>
-          <InputBox /> <InputDisplay />
-        </InputContainer>
+        <InputRow
+          inputField={this.state.iconInput}
+          tasks={this.state.unCategorizedTaskes}
+          totalTasks={this.state.totalTasks}
+          handler={this.inputHandler}
+        />
         <Space />
       </div>
     );
