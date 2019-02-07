@@ -26,8 +26,7 @@ const initialData = {
         "task-7",
         "task-8",
         "task-9",
-        "task-10",
-        "task-11"
+        "task-10"
       ],
       color: "#ff7f7f"
     },
@@ -64,7 +63,7 @@ const initialData = {
   },
   //   columnOrder: ["s-column", "a-column", "b-column", "c-column", "d-column"]
   rowOrder: ["s-row", "a-row", "b-row", "c-row", "d-row"],
-  unCategorizedTaskes: ["null-row"],
+  unCategorizedTasks: ["null-row"],
   totalTasks: 11,
   iconInput: ""
 };

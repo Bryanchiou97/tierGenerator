@@ -43,45 +43,59 @@ const DeleteArea = styled.div`
   width: 120px;
   height: 100%;
 `;
+
+const Icon = styled.div`
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: "red";
+  min-height: 80px;
+  min-width: 80px;
+`;
+
 class InputRow extends Component {
   state = {};
-  handleChange(event) {
-    //this.setState({ value: event.target.value });
-    console.log(event.target.value);
+
+  constructor() {
+    super();
+    this.handleChange = this.handleChange.bind(this);
+    this.submitHandler = this.submitHandler.bind(this);
+    this.state = {
+      value: ""
+    };
   }
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+    //console.log(event.target.value);
+  }
+  submitHandler(event) {
+    event.preventDefault();
+    this.props.handlerFromParent(this.state.value);
+    this.setState({
+      value: ""
+    });
+  }
+
   render() {
     const aaa = this.props.totalTasks;
     return (
       <InputContainer>
         <InputBox>
-          <label>
+          <form onSubmit={this.submitHandler}>
             Brand:
             <input
               type="text"
               value={this.state.value}
               onChange={this.handleChange}
             />
-          </label>
-          <button onClick={this.props.handler}>Submit</button>
+            <input type="submit" disabled={!this.state.value} />
+          </form>
           <div>{aaa}</div>
         </InputBox>
         <InputDisplay>
-          <Box />
-          <Box />
-          <Box />
-          <Box />
-          <Box />
-          <Box />
-          <Box />
-          <Box />
-          <Box />
-          <Box />
-          <Box />
-          <Box />
-          <Box />
-          <Box />
-          <Box />
-          <Box />
+          {this.props.row.taskIds &&
+            this.props.row.taskIds.map(task => <Icon>{task}</Icon>)}
         </InputDisplay>
         <DeleteArea />
       </InputContainer>

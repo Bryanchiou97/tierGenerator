@@ -51,6 +51,15 @@ const Space = styled.div`
   margin-top: 10px;
   height: 100px;
 `;
+
+const InputContainer = styled.div`
+  width: calc(80%);
+  background-color: #ffcc33;
+  margin: auto;
+  margin-top: 10px;
+  height: 240px;
+`;
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -58,10 +67,44 @@ class App extends Component {
     this.inputHandler = this.inputHandler.bind(this);
   }
 
-  inputHandler() {
-    this.setState({
-      totalTasks: 14
-    });
+  inputHandler(data) {
+    const currTasks = this.state.totalTasks + 1; // update total tasks++
+
+    // add to tasks
+    const idNewTask = `task-${currTasks}`;
+    console.log(idNewTask);
+    const newTaskContent = {
+      id: idNewTask,
+      content: data
+    };
+
+    // add to null-row
+    const row = this.state.rows["null-row"];
+    var newTaskIds = Array.from(row.taskIds);
+    newTaskIds.push(idNewTask);
+
+    const newRow = {
+      ...row,
+      taskIds: newTaskIds
+    };
+    // finished adding to null row
+
+    const newState = {
+      ...this.state,
+      totalTasks: currTasks,
+      tasks: {
+        ...this.state.tasks,
+        [newTaskContent.id]: newTaskContent
+      },
+      rows: {
+        ...this.state.rows,
+        "null-row": newRow
+      }
+    };
+
+    this.setState(newState);
+    console.log(this.state);
+    return;
   }
 
   state = initialData;
@@ -148,9 +191,8 @@ class App extends Component {
         </Centered>
         <InputRow
           inputField={this.state.iconInput}
-          tasks={this.state.unCategorizedTaskes}
-          totalTasks={this.state.totalTasks}
-          handler={this.inputHandler}
+          row={this.state.rows["null-row"]}
+          handlerFromParent={this.inputHandler}
         />
         <Space />
       </div>
@@ -173,3 +215,4 @@ export default App;
 //     index:1,
 //   },
 // };
+// JSON.stringify(config)
