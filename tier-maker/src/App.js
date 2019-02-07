@@ -52,14 +52,6 @@ const Space = styled.div`
   height: 100px;
 `;
 
-const InputContainer = styled.div`
-  width: calc(80%);
-  background-color: #ffcc33;
-  margin: auto;
-  margin-top: 10px;
-  height: 240px;
-`;
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -193,6 +185,8 @@ class App extends Component {
           inputField={this.state.iconInput}
           row={this.state.rows["null-row"]}
           handlerFromParent={this.inputHandler}
+          totalTasks={this.state.totalTasks}
+          tasks={this.state.tasks}
         />
         <Space />
       </div>

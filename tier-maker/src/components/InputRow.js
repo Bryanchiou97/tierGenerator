@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-
+import NewIcon from "./NewIcon";
 const InputBox = styled.div`
   border: 2px solid black;
   width: 200px;
@@ -31,27 +31,11 @@ const InputContainer = styled.div`
   height: 240px;
 `;
 
-const Box = styled.div`
-  border: 2px solid black;
-  background-color: red;
-  justify-self: stretch;
-`;
-
 const DeleteArea = styled.div`
   float: left;
   border: 2px solid black;
   width: 120px;
   height: 100%;
-`;
-
-const Icon = styled.div`
-  padding: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: "red";
-  min-height: 80px;
-  min-width: 80px;
 `;
 
 class InputRow extends Component {
@@ -95,7 +79,9 @@ class InputRow extends Component {
         </InputBox>
         <InputDisplay>
           {this.props.row.taskIds &&
-            this.props.row.taskIds.map(task => <Icon>{task}</Icon>)}
+            this.props.row.taskIds.map(task => (
+              <NewIcon tasks={this.props.tasks} task={task} />
+            ))}
         </InputDisplay>
         <DeleteArea />
       </InputContainer>
