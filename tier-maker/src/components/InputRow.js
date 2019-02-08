@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import NewIcon from "./NewIcon";
+import { Droppable } from "react-beautiful-dnd";
+
 const InputBox = styled.div`
   border: 2px solid black;
   width: 200px;
@@ -77,12 +79,28 @@ class InputRow extends Component {
           </form>
           <div>{aaa}</div>
         </InputBox>
-        <InputDisplay>
-          {this.props.row.taskIds &&
+
+        <Droppable droppableId={this.props.row.id} direction="horizontal">
+          {(provided, snapshot) => (
+            <InputDisplay
+              ref={provided.innerRef}
+              innerRef={provided.innerRef}
+              {...provided.droppableProps}
+              isDraggingOver={snapshot.isDraggingOver}
+            >
+              {this.props.row.taskIds &&
+                this.props.row.taskIds.map((task, index) => (
+                  <NewIcon tasks={this.props.tasks} task={task} index={index} />
+                ))}
+              {provided.placeholder}
+            </InputDisplay>
+          )}
+        </Droppable>
+        {/* {this.props.row.taskIds &&
             this.props.row.taskIds.map(task => (
               <NewIcon tasks={this.props.tasks} task={task} />
-            ))}
-        </InputDisplay>
+            ))} */}
+
         <DeleteArea />
       </InputContainer>
     );

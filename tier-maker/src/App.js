@@ -168,8 +168,8 @@ class App extends Component {
         <Wrapper>
           <Title>Tier List Generator</Title>
         </Wrapper>
-        <Centered>
-          <DragDropContext onDragEnd={this.onDragEnd}>
+        <DragDropContext onDragEnd={this.onDragEnd}>
+          <Centered>
             <BigContainer>
               {this.state.rowOrder.map(rowId => {
                 const row = this.state.rows[rowId];
@@ -179,15 +179,17 @@ class App extends Component {
                 return <Row key={row.id} row={row} tasks={tasks} />;
               })}
             </BigContainer>
-          </DragDropContext>
-        </Centered>
-        <InputRow
-          inputField={this.state.iconInput}
-          row={this.state.rows["null-row"]}
-          handlerFromParent={this.inputHandler}
-          totalTasks={this.state.totalTasks}
-          tasks={this.state.tasks}
-        />
+          </Centered>
+
+          <InputRow
+            inputField={this.state.iconInput}
+            row={this.state.rows["null-row"]}
+            key="null-row"
+            handlerFromParent={this.inputHandler}
+            totalTasks={this.state.totalTasks}
+            tasks={this.state.tasks}
+          />
+        </DragDropContext>
         <Space />
       </div>
     );
