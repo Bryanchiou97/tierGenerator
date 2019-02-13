@@ -220,7 +220,7 @@ class App extends Component {
     return (
       <div>
         <Wrapper>
-          <Title>Tier List Generator</Title>
+          <Title>Rate, Create</Title>
         </Wrapper>
         <DragDropContext onDragEnd={this.onDragEnd}>
           <Centered>
