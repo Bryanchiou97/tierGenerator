@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import NewIcon from "./NewIcon";
 import { Droppable } from "react-beautiful-dnd";
-
+import Clear from "./Clear";
 const InputBox = styled.div`
   border: 2px solid black;
   width: 200px;
@@ -47,6 +47,7 @@ class InputRow extends Component {
     super();
     this.handleChange = this.handleChange.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
+    this.clearHandler = this.clearHandler.bind(this);
     this.state = {
       value: ""
     };
@@ -61,6 +62,11 @@ class InputRow extends Component {
     this.setState({
       value: ""
     });
+  }
+
+  clearHandler(event) {
+    event.preventDefault();
+    this.props.clearAllHandler();
   }
 
   render() {
@@ -88,20 +94,17 @@ class InputRow extends Component {
               {...provided.droppableProps}
               isDraggingOver={snapshot.isDraggingOver}
             >
-              {this.props.row.taskIds &&
-                this.props.row.taskIds.map((task, index) => (
-                  <NewIcon tasks={this.props.tasks} task={task} index={index} />
-                ))}
+              {this.props.row.taskIds.map((task, index) => (
+                <NewIcon tasks={this.props.tasks} task={task} index={index} />
+              ))}
               {provided.placeholder}
             </InputDisplay>
           )}
         </Droppable>
-        {/* {this.props.row.taskIds &&
-            this.props.row.taskIds.map(task => (
-              <NewIcon tasks={this.props.tasks} task={task} />
-            ))} */}
 
-        <DeleteArea />
+        <DeleteArea>
+          <Clear onClick={this.clearHandler} />
+        </DeleteArea>
       </InputContainer>
     );
   }

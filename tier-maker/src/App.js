@@ -57,6 +57,7 @@ class App extends Component {
     super(props);
 
     this.inputHandler = this.inputHandler.bind(this);
+    this.clearAllHandler = this.clearAllHandler.bind(this);
   }
 
   inputHandler(data) {
@@ -95,7 +96,6 @@ class App extends Component {
     };
 
     this.setState(newState);
-    console.log(this.state);
     return;
   }
 
@@ -162,6 +162,60 @@ class App extends Component {
     return;
   };
 
+  clearAllHandler() {
+    //clear all tasks in tasks
+    // go through all rows and clear taskids arr
+    // set total tasks to 0
+    const newTotalTasks = 0;
+    const sRow = this.state.rows["s-row"];
+    const aRow = this.state.rows["a-row"];
+    const bRow = this.state.rows["b-row"];
+    const cRow = this.state.rows["c-row"];
+    const dRow = this.state.rows["d-row"];
+    const nullRow = this.state.rows["null-row"];
+    const newSRow = {
+      ...sRow,
+      taskIds: []
+    };
+    const newARow = {
+      ...aRow,
+      taskIds: []
+    };
+    const newBRow = {
+      ...bRow,
+      taskIds: []
+    };
+    const newCRow = {
+      ...cRow,
+      taskIds: []
+    };
+    const newDRow = {
+      ...dRow,
+      taskIds: []
+    };
+    const newNullRow = {
+      ...nullRow,
+      taskIds: []
+    };
+
+    const newState = {
+      ...this.state,
+      totalTasks: newTotalTasks,
+      tasks: {},
+      rows: {
+        ...this.state.rows,
+        [newSRow.id]: newSRow,
+        [newARow.id]: newARow,
+        [newBRow.id]: newBRow,
+        [newCRow.id]: newCRow,
+        [newDRow.id]: newDRow,
+        [newNullRow.id]: newNullRow
+      }
+    };
+    console.log(newState);
+    this.setState(newState);
+    return;
+  }
   render() {
     return (
       <div>
@@ -188,6 +242,7 @@ class App extends Component {
             handlerFromParent={this.inputHandler}
             totalTasks={this.state.totalTasks}
             tasks={this.state.tasks}
+            clearAllHandler={this.clearAllHandler}
           />
         </DragDropContext>
         <Space />

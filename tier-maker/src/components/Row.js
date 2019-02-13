@@ -75,9 +75,10 @@ class Row extends Component {
               {...provided.droppableProps}
               isDraggingOver={snapshot.isDraggingOver}
             >
-              {this.props.tasks.map((task, index) => (
-                <Icon key={task.id} task={task} index={index} />
-              ))}
+              {this.props.tasks &&
+                this.props.tasks.map((task, index) => (
+                  <Icon key={task.id} task={task} index={index} />
+                ))}
               {provided.placeholder}
             </TierBoxes>
           )}
