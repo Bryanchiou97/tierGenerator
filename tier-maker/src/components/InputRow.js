@@ -4,11 +4,11 @@ import NewIcon from "./NewIcon";
 import { Droppable } from "react-beautiful-dnd";
 import Clear from "./Clear";
 const InputBox = styled.div`
-  border: 2px solid black;
-  width: 200px;
+  //border: 2px solid black;
+  width: calc(20%);
   height: calc(100% - 4px);
   float: left;
-  background-color: green;
+  //background-color: green;
   margin-right: 20px;
 `;
 
@@ -19,15 +19,16 @@ const InputDisplay = styled.div`
   grid-template-rows: 1fr 1fr 1fr;
   grid-gap 2px 2px;
   grid-auto-flow: row;
-  border: 2px solid black;
-  width: 600px;
+  border: 4px solid #595f68;
+  width: calc(60%);
   height: calc(100% - 4px);
-  margin-right: 20px;
+  margin-right: 40px;
+  background-color: #595f68;
 `;
 
 const InputContainer = styled.div`
   width: calc(80%);
-  background-color: #ffcc33;
+  //background-color: #ffcc33;
   margin: auto;
   margin-top: 10px;
   height: 240px;
@@ -35,9 +36,11 @@ const InputContainer = styled.div`
 
 const DeleteArea = styled.div`
   float: left;
-  border: 2px solid black;
-  width: 120px;
+  text-align: center;
+  //border: 2px solid black;
+  width: calc(12%);
   height: 100%;
+  align-self: stretch;
 `;
 
 class InputRow extends Component {
@@ -70,7 +73,6 @@ class InputRow extends Component {
   }
 
   render() {
-    const aaa = this.props.totalTasks;
     return (
       <InputContainer>
         <InputBox>
@@ -83,7 +85,6 @@ class InputRow extends Component {
             />
             <input type="submit" disabled={!this.state.value} />
           </form>
-          <div>{aaa}</div>
         </InputBox>
 
         <Droppable droppableId={this.props.row.id} direction="horizontal">

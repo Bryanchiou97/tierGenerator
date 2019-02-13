@@ -3,6 +3,7 @@ import img from "./recycle.png";
 import styled from "styled-components";
 
 const Container = styled.div`
+  margin-top: 10px;
   height: 50%;
   width: 100%;
 `;
