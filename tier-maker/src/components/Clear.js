@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import img from "./recycle.png";
+//import img from "./dIcon.PNG";
 import styled from "styled-components";
 
 const Container = styled.div`
