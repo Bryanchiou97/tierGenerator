@@ -1,12 +1,19 @@
 import React, { Component } from "react";
 import img from "./recycle.png";
-//import img from "./dIcon.PNG";
+import dimg from "./dIcon.PNG";
 import styled from "styled-components";
 
+const BigContainer = styled.div`
+  display: grid;
+  background-color: #595f68;
+  grid-template-columns: 100%;
+  //grid-template-rows: 1fr 1fr;
+  grid-auto-flow: row;
+`;
+
 const Container = styled.div`
-  margin-top: 10px;
-  height: 50%;
-  width: 100%;
+  //border: 2px solid black;
+  place-self: center;
 `;
 
 class Clear extends Component {
@@ -16,14 +23,24 @@ class Clear extends Component {
   };
   render() {
     return (
-      <Container>
-        <img
-          src={img}
-          width={"75%"}
-          height={"75%"}
-          onClick={this.props.onClick}
-        />
-      </Container>
+      <BigContainer>
+        <Container>
+          <img
+            src={img}
+            width={"100%"}
+            height={"100%"}
+            onClick={this.props.onClick}
+          />
+        </Container>
+        <Container>
+          <img
+            src={dimg}
+            width={"100%"}
+            height={"100%"}
+            onClick={this.props.onClick}
+          />
+        </Container>
+      </BigContainer>
     );
   }
 }

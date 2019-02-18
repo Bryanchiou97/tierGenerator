@@ -10,18 +10,12 @@ import { Droppable } from "react-beautiful-dnd";
 // `;
 const Container = styled.div`
   margin: 2px;
-
   background-color: #595f68;
   display: grid;
   grid-template-columns: [tierNameStart] 1fr [tierNameEnd tierBoxStart] 4fr [tierBoxEnd];
   grid-template-row: 100%;
-  //grid-gap: 2px 2px;
-  //flex:1,
-  //flex-direction: row;
-  //flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  //height: calc(20% - 4px);
   width: 99%;
   height: 100%;
 `;
@@ -34,7 +28,6 @@ const TierName = styled.div`
   box-sizing: border-box;
   text-align: center;
   background-color: ${props => props.boxColor || "lightblue"};
-  //align-self: stretch;
   grid-area: 1 / 1 / 2 / 2;
   margin: 2px;
   height: calc(50%);

@@ -29,15 +29,25 @@ const Centered = styled.div`
   background-color: black;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  min-height; 60vh;
+  min-height: 60vh;
+`;
+
+const CenteredBottom = styled.div`
+  margin: auto;
+  margin-top: 10px;
+  width: 70%;
+  display: grid;
+  text-align: center;
+  align-items: stretch;
+  max-width: 70%;
+  background-color: white;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  min-height: 30vh;
 `;
 
 const BigContainer = styled.div`
-  //display: table-row;
   display: grid;
-  // grid-template-columns: [tierNameStart] 1fr [tierNameEnd tierBoxStart] 4fr [tierBoxEnd];
-  // grid-template-rows: 20%;
-  //grid-gap: 2px 2px;
   grid-auto-flow: row;
   border: 2px solid black;
   width: 100%;
@@ -234,16 +244,17 @@ class App extends Component {
               })}
             </BigContainer>
           </Centered>
-
-          <InputRow
-            inputField={this.state.iconInput}
-            row={this.state.rows["null-row"]}
-            key="null-row"
-            handlerFromParent={this.inputHandler}
-            totalTasks={this.state.totalTasks}
-            tasks={this.state.tasks}
-            clearAllHandler={this.clearAllHandler}
-          />
+          <CenteredBottom>
+            <InputRow
+              inputField={this.state.iconInput}
+              row={this.state.rows["null-row"]}
+              key="null-row"
+              handlerFromParent={this.inputHandler}
+              totalTasks={this.state.totalTasks}
+              tasks={this.state.tasks}
+              clearAllHandler={this.clearAllHandler}
+            />
+          </CenteredBottom>
         </DragDropContext>
         <Space />
       </div>

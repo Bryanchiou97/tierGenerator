@@ -3,44 +3,40 @@ import styled from "styled-components";
 import NewIcon from "./NewIcon";
 import { Droppable } from "react-beautiful-dnd";
 import Clear from "./Clear";
-const InputBox = styled.div`
-  //border: 2px solid black;
-  width: calc(20%);
-  height: calc(100% - 4px);
-  float: left;
-  //background-color: green;
-  margin-right: 20px;
+
+const InputContainer = styled.div`
+  display: grid;
+  width: calc(100%);
+  grid-template-columns: 2fr 6fr 1fr;
+  grid-template-rows: 100%;
+  border: 2px solid black;
 `;
 
-const InputDisplay = styled.div`
-  float: left;
+const InputBox = styled.div`
+  //border: 2px solid black;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-gap 2px 2px;
-  grid-auto-flow: row;
-  border: 4px solid #595f68;
-  width: calc(60%);
-  height: calc(100% - 4px);
-  margin-right: 40px;
+  grid-area: 1 / 1 / 2 / 2;
+  justify-self: center;
   background-color: #595f68;
 `;
 
-const InputContainer = styled.div`
-  width: calc(80%);
-  //background-color: #ffcc33;
-  margin: auto;
-  margin-top: 10px;
-  height: 240px;
+const InputDisplay = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 2px 2px;
+  grid-auto-flow: row;
+  //border: 2px solid black;
+  grid-area: 1 / 2 / 2 / 3;
+  justify-self: stretch;
+  background-color: #595f68;
 `;
 
 const DeleteArea = styled.div`
-  float: left;
-  text-align: center;
+  // text-align: center;
+  background-color: #595f68;
   //border: 2px solid black;
-  width: calc(12%);
-  height: 100%;
-  align-self: stretch;
+  grid-area: 1 / 3 / 2 / 4;
 `;
 
 class InputRow extends Component {
