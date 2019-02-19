@@ -73,7 +73,6 @@ class InputRow extends Component {
       <InputContainer>
         <InputBox>
           <form onSubmit={this.submitHandler}>
-            Brand:
             <input
               type="text"
               value={this.state.value}
